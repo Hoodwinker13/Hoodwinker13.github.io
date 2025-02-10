@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Celebration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1);
+            min-height: 100vh;
+            color: #8b0000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            padding: 40px 0;
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive;
+            color: #ff1493;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .heart {
+            color: #ff0000;
+            font-size: 1.5em;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ff69b4;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            background: #ff1493;
+        }
+
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart-emoji {
+            position: absolute;
+            font-size: 24px;
+            animation: float 4s infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        .reasons-list {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .reasons-list li {
+            padding: 10px;
+            margin: 10px 0;
+            background: #fff0f5;
+            border-radius: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+          }
+          
+          .popup-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 0, 100, 0.3);
+            position: relative;
+          }
+          
+          .popup-content h1 {
+            color: #ff4081;
+            margin-bottom: 30px;
+            font-family: 'Arial', sans-serif;
+          }
+          
+          .buttons button {
+            padding: 10px 30px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.3s;
+            color: #ff4081;
+          }
+          
+          .buttons button:first-child {
+            background-color: #ff4081;
+            color: white;
+          }
+          
+          .buttons button:last-child {
+            background-color: #e0e0e0;
+            color: black;
+          }
+          
+          .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 30px;
+            cursor: pointer;
+          }
+          .button1 {
+            background-color: transparent;
+            border: transparent;
+          }
+
+          .button1:hover {
+            transform: scale(1.05);
+            background-color: transparent;
+          }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="hearts"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Will you be my valentine? <span class="heart">❤️</span></h1>
+        </header>
+
+        <div class="card">
+            <h2>10 Reasons Why I Love You</h2>
+            <ul class="reasons-list">
+                <li>1. Your beautiful smile</li>
+                <li>2. Your pacific ocean like heart</li>
+                <li>3. Your sense of humor</li>
+                <li>4. Your shining eyes</li>
+                <li>5. Your endless support</li>
+                <li>6. Your intelligence and wisdom</li>
+                <li>7. The way you know me so well</li>
+                <li>8. How much you care about me</li>
+                <li>9. How you listen to me complain</li>
+                <li>10. You are ESTHER!!!!!</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <p class="message">
+                You make my everyday better just by existing!! Thank you for listening to my complains and going through my unsafe decisions. Thank you for being my girlfriend!!
+            </p>
+            <img src = "valentines.gif" alt = "Valentine's Day GIF" id = "myImage">
+            <br>
+            <a class="button"><button class = "button1" onclick="showValentinePopup()" color= "#ff1493">Send Love 💌!</button></a>
+
+        </div>
+
+        
+    </div>
+    
+    <div id="valentinePopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h1>Will you be my Valentine? 💕</h1>
+        <div class="buttons">
+        <button onclick="responseYes()">Yes!</button>
+        <button onmouseover="moveNoButton()" id="noBtn">No</button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'heart-emoji';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+    <script>
+        function showValentinePopup() {
+          document.getElementById("valentinePopup").style.display = "flex";
+        }
+        
+        function closePopup() {
+          document.getElementById("valentinePopup").style.display = "none";
+        }
+        
+        function responseYes() {
+          alert("Yay! 💖 Please send Minjune a text to make him happy! 🥰");
+          closePopup();
+        }
+        
+        function moveNoButton() {
+          const noBtn = document.getElementById("noBtn");
+          const x = Math.random() * (window.innerWidth - 100);
+          const y = Math.random() * (window.innerHeight - 50);
+          noBtn.style.position = "absolute";
+          noBtn.style.left = x + "px";
+          noBtn.style.top = y + "px";
+          
+        }
+        
+    </script>
+    <script>
+        var myImage = document.querySelector('#myImage');
+
+        myImage.addEventListener('click',function(e) {
+            var src = (e.target.src || e.srcElement.src);
+
+            if(src == 'valentines.gif') {
+                src = 'esther_minjune.jpg';
+            } else {
+                src = 'valentines.gif';
+            }
+        },false);
+    </script>
+</body>
+</html>
